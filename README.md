@@ -3,6 +3,9 @@
 ```ssh
 npm install
 ```
+```ssh
+npm install -g json-server
+```
 
 # Comandos para iniciar o servidor local
 

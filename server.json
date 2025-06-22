@@ -1,0 +1,24 @@
+{
+  "produtos": [
+    {
+      "nome": "Pendrive",
+      "preco": 21.9,
+      "id": "1"
+    },
+    {
+      "nome": "Camisa",
+      "preco": 30.9,
+      "id": "2"
+    },
+    {
+      "nome": "Mouse",
+      "preco": 17.9,
+      "id": "3"
+    },
+    {
+      "nome": "Teclado",
+      "preco": 29.98,
+      "id": "4"
+    }
+  ]
+}

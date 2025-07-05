@@ -68,6 +68,28 @@ export default function Editar({ id, onEditSuccess }) {
           />
         </div>
         <button type="submit">Salvar</button>
+         <button
+          type="button"
+          style={{ marginLeft: "10px", background: "red", color: "white" }}
+          onClick={() => {
+            if (window.confirm("Tem certeza que deseja excluir este produto?")) {
+              fetch(`http://localhost:3000/produtos/${id}`, {
+                method: "DELETE",
+              })
+                .then((res) => {
+                  if (res.ok) {''
+                    alert("Produto excluído com sucesso!");
+                    navigate("/");
+                    if (onEditSuccess) onEditSuccess();
+                  } else {
+                    alert("Erro ao excluir o produto.");
+                  }
+                });
+            }
+          }}
+        >
+          Excluir
+        </button>
       </form>
     </div>
   );

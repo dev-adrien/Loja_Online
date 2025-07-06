@@ -10,7 +10,6 @@ import Home from './pages/Home.jsx'
 function EditarWrapper() {
   const { id } = useParams();
   return <Editar id={id} />;
->>>>>>> main
 }
 
 export default function App() {

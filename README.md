@@ -1,3 +1,23 @@
+# Primeiro instalar as dependências
+
+```ssh
+npm install
+```
+```ssh
+npm install -g json-server
+```
+
+# Comandos para iniciar o servidor local
+
+- Em um terminal rodar:
+```ssh
+npm run dev
+```
+- Em outro terminal rodar:
+```ssh
+json-server --watch server.json
+```
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

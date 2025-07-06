@@ -1,13 +1,28 @@
+import './App.css';
+import PaginaInicial from './PaginaInicial.jsx';
+import AdicionarProduto from "./AdicionarProduto";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Editar from "./Editar";
+import { useParams } from "react-router-dom";
 import { useState } from 'react'
-import './App.css'
 import Home from './pages/Home.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <></>
-  )
+function EditarWrapper() {
+  const { id } = useParams();
+  return <Editar id={id} />;
+>>>>>>> main
 }
 
-export default App
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PaginaInicial />} />
+        <Route path="/editar/:id" element={<EditarWrapper />} />
+        <Route path="/adicionar" element={<AdicionarProduto />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+      

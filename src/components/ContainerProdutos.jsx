@@ -1,17 +1,18 @@
 import Produto from "./Produto"
-import './../utils/ContainerProdutos.css'
+import { Grid, Container } from '@mui/material';
 
-export default function ContainerProdutos(){
+export default function ContainerProdutos({produtos}){
     return(
-        <div className="containerProdutos">
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-        </div>
+        <>
+        <Container>
+            <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+                {produtos.map((produto) => ( 
+                    <Grid key={produto.id} >
+                        <Produto {...produto} />
+                    </Grid>
+                ))}
+            </Grid>
+        </Container>
+        </>
     )
 }

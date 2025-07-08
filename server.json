@@ -1,24 +1,52 @@
 {
   "produtos": [
     {
-      "nome": "Pendrive",
-      "preco": 21.9,
-      "id": "1"
+      "id": 1,
+      "nome": "iPhone 14",
+      "categoria": "Smartphone",
+      "preco": "5.499,00",
+      "imagem": "https://th.bing.com/th/id/OIP.k226hBo6dTgqNS-XNUy9hgHaEK?w=307&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
+      "descricao": "O mais novo iPhone com câmera avançada e desempenho incrível."
     },
     {
-      "nome": "Camisa",
-      "preco": 30.9,
-      "id": "2"
+      "id": 2,
+      "nome": "Monitor LG",
+      "categoria": "Monitor",
+      "preco": "899,00",
+      "imagem": "https://th.bing.com/th/id/OIP.BeVeH8jRUD-bBm8UY2XBfwHaGF?w=248&h=204&c=7&r=0&o=7&pid=1.7&rm=3",
+      "descricao": "Monitor LG Full HD, ideal para trabalho e entretenimento."
     },
     {
-      "nome": "Mouse",
-      "preco": 17.9,
-      "id": "3"
+      "id": 3,
+      "nome": "Notebook Dell",
+      "categoria": "Notebook",
+      "preco": "3.299,00",
+      "imagem": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/15-3520/media-gallery/notebook-inspiron-15-3520-black-gallery-10.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=606&qlt=100,1&resMode=sharp2&size=606,402&chrss=full",
+      "descricao": "Notebook potente para estudar, trabalhar e se divertir."
     },
     {
-      "nome": "Teclado",
-      "preco": 29.98,
-      "id": "4"
+      "id": 4,
+      "nome": "Teclado RGB",
+      "categoria": "Periférico",
+      "preco": "349,00",
+      "imagem": "https://th.bing.com/th/id/OIP.QPu6-BcTofnAAMeTzysA-wHaHa?w=182&h=182&c=7&r=0&o=7&pid=1.7&rm=3",
+      "descricao": "Teclado mecânico com iluminação RGB para gamers."
+    },
+    {
+      "id": 5,
+      "nome": "RTX 3060",
+      "categoria": "Hardware",
+      "preco": "2.499,00",
+      "imagem": "https://th.bing.com/th/id/OIP.mFN274XNJRi8zqQPcWrlXQHaHz?w=181&h=191&c=7&r=0&o=7&pid=1.7&rm=3",
+      "descricao": "Placa de vídeo poderosa para jogos e edição de vídeo."
+    },
+    {
+      "id": 6,
+      "nome": "Cadeira Gamer",
+      "categoria": "Mobiliário",
+      "preco": "1.199,00",
+      "imagem": "https://th.bing.com/th/id/OIP.dtd0CTa9jBkiu5b5pQZhSgHaFs?w=254&h=195&c=7&r=0&o=7&pid=1.7&rm=3",
+      "descricao": "Cadeira confortável e ergonômica para longas horas no PC."
     }
   ]
 }

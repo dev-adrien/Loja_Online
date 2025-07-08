@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '../utils/theme.js'
@@ -6,21 +6,25 @@ import PesquisaProduto from '../components/PesquisaProduto'
 import ContainerProdutos from '../components/ContainerProdutos'
 import '../utils/home.css'
 
-const produtos = [
-        { id: 1, nome: 'iPhone 14', categoria: 'Smartphone', preco: 'R$ 5.499,00', imagem: 'https://th.bing.com/th/id/OIP.k226hBo6dTgqNS-XNUy9hgHaEK?w=307&h=180&c=7&r=0&o=7&pid=1.7&rm=3', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium porttitor pretium. Mauris quis tristique risus, eget aliquam nisl. Sed lorem neque, sodales quis blandit id, aliquam quis orci. Praesent risus erat, fermentum sit amet lorem et, aliquet sollicitudin est. Sed viverra enim dui, rhoncus viverra magna tincidunt sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit ante, pharetra at rutrum at, faucibus in arcu.' },
-        { id: 2, nome: 'Monitor LG', categoria: 'Monitor', preco: 'R$ 899,00', imagem: 'https://th.bing.com/th/id/OIP.BeVeH8jRUD-bBm8UY2XBfwHaGF?w=248&h=204&c=7&r=0&o=7&pid=1.7&rm=3', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium porttitor pretium. Mauris quis tristique risus, eget aliquam nisl. Sed lorem neque, sodales quis blandit id, aliquam quis orci. Praesent risus erat, fermentum sit amet lorem et, aliquet sollicitudin est. Sed viverra enim dui, rhoncus viverra magna tincidunt sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit ante, pharetra at rutrum at, faucibus in arcu.' },
-        { id: 3, nome: 'Notebook Dell', categoria: 'Notebook', preco: 'R$ 3.299,00', imagem: 'data:image/webp;base64,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' , descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium porttitor pretium. Mauris quis tristique risus, eget aliquam nisl. Sed lorem neque, sodales quis blandit id, aliquam quis orci. Praesent risus erat, fermentum sit amet lorem et, aliquet sollicitudin est. Sed viverra enim dui, rhoncus viverra magna tincidunt sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit ante, pharetra at rutrum at, faucibus in arcu.'},
-        { id: 4, nome: 'Teclado RGB', categoria: 'Periférico', preco: 'R$ 349,00', imagem: 'https://th.bing.com/th/id/OIP.QPu6-BcTofnAAMeTzysA-wHaHa?w=182&h=182&c=7&r=0&o=7&pid=1.7&rm=3', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium porttitor pretium. Mauris quis tristique risus, eget aliquam nisl. Sed lorem neque, sodales quis blandit id, aliquam quis orci. Praesent risus erat, fermentum sit amet lorem et, aliquet sollicitudin est. Sed viverra enim dui, rhoncus viverra magna tincidunt sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit ante, pharetra at rutrum at, faucibus in arcu.' },
-        { id: 5, nome: 'RTX 3060', categoria: 'Hardware', preco: 'R$ 2.499,00', imagem: 'https://th.bing.com/th/id/OIP.mFN274XNJRi8zqQPcWrlXQHaHz?w=181&h=191&c=7&r=0&o=7&pid=1.7&rm=3', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium porttitor pretium. Mauris quis tristique risus, eget aliquam nisl. Sed lorem neque, sodales quis blandit id, aliquam quis orci. Praesent risus erat, fermentum sit amet lorem et, aliquet sollicitudin est. Sed viverra enim dui, rhoncus viverra magna tincidunt sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit ante, pharetra at rutrum at, faucibus in arcu.' },
-        { id: 6, nome: 'Cadeira Gamer', categoria: 'Mobiliário', preco: 'R$ 1.199,00', imagem: 'https://th.bing.com/th/id/OIP.dtd0CTa9jBkiu5b5pQZhSgHaFs?w=254&h=195&c=7&r=0&o=7&pid=1.7&rm=3', descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium porttitor pretium. Mauris quis tristique risus, eget aliquam nisl. Sed lorem neque, sodales quis blandit id, aliquam quis orci. Praesent risus erat, fermentum sit amet lorem et, aliquet sollicitudin est. Sed viverra enim dui, rhoncus viverra magna tincidunt sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elit ante, pharetra at rutrum at, faucibus in arcu.' }
-    ];
+export default function Home() { 
+    const [produtos, setProdutos] = useState([]);
+    const [produtosFiltrados, setProdutosFiltrados] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/produtos")
+            .then(res => res.json())
+            .then(data => {
+                setProdutos(data);
+                setProdutosFiltrados(data);
+            });
+    }, []);
 
     function parsePreco(preco) {
-        return parseFloat(preco.replace('R$', '').replace('.', '').replace(',', '.').trim());
+        if (typeof preco === "string") {
+            return parseFloat(preco.replace('R$', '').replace('.', '').replace(',', '.').trim());
+        }
+        return preco;
     }
-
-export default function Home() { 
-    const [produtosFiltrados, setProdutosFiltrados] = useState(produtos) 
 
     const Pesquisar = ({ busca, criterioOrdenacao, ordem }) => {
         let filtrados = produtos.filter(produto =>
@@ -36,13 +40,12 @@ export default function Home() {
         setProdutosFiltrados(filtrados);
     };
 
-    
-  return (
-    <div className="home">
-      <ThemeProvider theme={theme}>
-        <PesquisaProduto onPesquisar={Pesquisar}/>
-        <ContainerProdutos produtos={produtosFiltrados} />
-      </ThemeProvider>
-    </div>
-  )
+    return (
+        <div className="home">
+            <ThemeProvider theme={theme}>
+                <PesquisaProduto onPesquisar={Pesquisar}/>
+                <ContainerProdutos produtos={produtosFiltrados} />
+            </ThemeProvider>
+        </div>
+    )
 }

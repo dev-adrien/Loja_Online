@@ -39,7 +39,7 @@ export default function AdicionarProduto() {
   }
 
   // validação
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setErro("");
     setMensagem("");
@@ -49,37 +49,38 @@ export default function AdicionarProduto() {
       return;
     }
 
-    // adicionando dados do formulário
-    fetch("http://localhost:3000/produtos", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nome: produto.nome,
-        preco: parseFloat(produto.preco),
-        categoria: produto.categoria,
-        descricao: produto.descricao,
-        quantidade: produto.quantidade,
-        imagem: produto.imagem,
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Erro ao cadastrar produto.");
-        return res.json();
-      })
-      .then(() => {
-        setMensagem("Produto cadastrado com sucesso!");
-        //resetando o formulário
-        setProduto({
-          nome: "",
-          preco: "",
-          categoria: "",
-          descricao: "",
-          quantidade: "",
-          imagem: "",
-        });
-        setTimeout(() => navigate("/"), 1500);
-      })
-      .catch((err) => setErro(err.message));
+    try {
+      const res = await fetch("http://localhost:3000/produtos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: produto.nome,
+          preco: parseFloat(produto.preco),
+          categoria: produto.categoria,
+          descricao: produto.descricao,
+          quantidade: parseInt(produto.quantidade, 10), // <-- corrigido aqui
+          imagem: produto.imagem,
+        }),
+      });
+      if (!res.ok) throw new Error("Erro ao cadastrar produto.");
+      await res.json();
+      setMensagem("Produto cadastrado com sucesso!");
+      //resetando o formulário
+      setProduto({
+        nome: "",
+        preco: "",
+        categoria: "",
+        descricao: "",
+        quantidade: "",
+        imagem: "",
+      });
+      setTimeout(() => {
+        navigate("/");
+        window.location.reload(); // força recarregar os produtos
+      }, 1500);
+    } catch (err) {
+      setErro(err.message);
+    }
   }
 
   return (

@@ -3,7 +3,7 @@ import { Modal, Box, Typography, CardMedia } from '@mui/material';
 
 export default function ProdutoPopUp({ open, onClose, produto }) {
   if (!produto) return null;
-  const { nome, preco, categoria, imagem, descricao } = produto;
+  const { nome, preco, categoria, imagem, descricao, estoque } = produto;
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -15,6 +15,7 @@ export default function ProdutoPopUp({ open, onClose, produto }) {
         <CardMedia component="img" height="180" image={imagem} alt={nome} sx={{ objectFit: 'contain', mb: 2 }} />
         <Typography variant="body2" color="primary" sx={{ mb: 1 }}><strong>Categoria:</strong> {categoria}</Typography>
         <Typography variant="body2" color="primary" sx={{ mb: 1 }}><strong>Preço:</strong> {preco}</Typography>
+        <Typography variant="body2" color="primary" sx={{ mb: 1 }}><strong>Estoque:</strong> {estoque}</Typography>
         <Typography variant="body2"color="primary"><strong>Descrição:</strong> {descricao}</Typography>
       </Box>
     </Modal>

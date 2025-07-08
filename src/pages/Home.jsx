@@ -5,6 +5,7 @@ import theme from '../utils/theme.js'
 import PesquisaProduto from '../components/PesquisaProduto'
 import ContainerProdutos from '../components/ContainerProdutos'
 import '../utils/home.css'
+import produtos from '../services/produtos.json';
 
 export default function Home() { 
     const [produtos, setProdutos] = useState([]);

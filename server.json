@@ -1,23 +1,39 @@
 {
   "produtos": [
-    {
+    { 
       "nome": "Pendrive",
       "preco": 21.9,
+      "categoria": "Eletrônicos",
+      "imagem": "https://example.com/pendrive.jpg",
+      "estoque": 100,
+      "descricao": "Pendrive de 16GB, ideal para armazenamento portátil.",
       "id": "1"
     },
     {
       "nome": "Camisa",
       "preco": 30.9,
+      "categoria": "Roupas",
+      "imagem": "https://example.com/camisa.jpg",
+      "estoque": 50,
+      "descricao": "Camisa de algodão, confortável e estilosa.",
       "id": "2"
     },
     {
       "nome": "Mouse",
       "preco": 17.9,
+      "categoria": "Eletrônicos",
+      "imagem": "https://example.com/mouse.jpg",
+      "estoque": 200,
+      "descricao": "Mouse óptico com design ergonômico.",
       "id": "3"
     },
     {
       "nome": "Teclado",
       "preco": 29.98,
+      "categoria": "Eletrônicos",
+      "imagem": "https://example.com/teclado.jpg",
+      "estoque": 150,
+      "descricao": "Teclado mecânico com retroiluminação RGB.",
       "id": "4"
     }
   ]

@@ -1,49 +1,60 @@
 .adicionar-produto-container {
-  max-width: 400px;
-  margin: 40px auto;
+  max-width: 540px;
+  margin: 48px auto;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 32px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  padding: 40px 32px 32px 32px;
 }
 
 .adicionar-produto-container h2 {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   color: #015FCA;
+  text-align: center;
 }
 
 .adicionar-produto-container form > div {
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   text-align: left;
 }
 
 .adicionar-produto-container label {
   display: block;
-  margin-bottom: 6px;
-  font-weight: 500;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #222;
+  font-size: 1.05em;
 }
 
 .adicionar-produto-container input,
 .adicionar-produto-container textarea,
 .adicionar-produto-container select {
   width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
+  padding: 10px 12px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1.08em;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+.adicionar-produto-container textarea {
+  min-height: 60px;
+  resize: vertical;
 }
 
 .adicionar-produto-container button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background: #015FCA;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: bold;
   font-size: 1.1em;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 18px;
+  transition: background 0.2s;
 }
 
 .adicionar-produto-container button:hover {
@@ -52,10 +63,12 @@
 
 .adicionar-produto-container .erro {
   color: #d20103;
-  margin-top: 10px;
+  margin-top: 12px;
+  text-align: center;
 }
 
 .adicionar-produto-container .mensagem {
   color: #0a8a0a;
-  margin-top: 10px;
+  margin-top: 12px;
+  text-align: center;
 }

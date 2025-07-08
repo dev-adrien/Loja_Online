@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AdicionarProdutos.css";
+import "./AdicionarProduto.css";
 
 export default function AdicionarProduto() {
   // fixando o state de cada campo

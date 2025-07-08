@@ -38,6 +38,15 @@ export default function AdicionarProduto() {
     return "";
   }
 
+  function formatarPreco(valor) {
+    if (typeof valor === "number") valor = valor.toString();
+    valor = valor.replace(/[^\d.,]/g, '');
+    valor = valor.replace(/\./g, '').replace(',', '.');
+    const numero = parseFloat(valor);
+    if (isNaN(numero)) return '';
+    return "R$ " + numero.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
   // validação
   async function handleSubmit(e) {
     e.preventDefault();
@@ -55,11 +64,11 @@ export default function AdicionarProduto() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           nome: produto.nome,
-          preco: parseFloat(produto.preco),
+          preco: formatarPreco(produto.preco),
           categoria: produto.categoria,
           descricao: produto.descricao,
-          quantidade: parseInt(produto.quantidade, 10), // <-- corrigido aqui
           imagem: produto.imagem,
+          estoque: parseInt(produto.quantidade, 10),
         }),
       });
       if (!res.ok) throw new Error("Erro ao cadastrar produto.");

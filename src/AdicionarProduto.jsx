@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./AdicionarProdutos.css";
 
 export default function AdicionarProduto() {
   // fixando o state de cada campo
@@ -82,7 +83,7 @@ export default function AdicionarProduto() {
   }
 
   return (
-    <div>
+    <div className="adicionar-produto-container">
       <h2>Adicionar Produto</h2>
       <form onSubmit={handleSubmit}>
         {/* Nome do produto */}

@@ -55,7 +55,7 @@ export default function AdicionarProduto() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         nome: produto.nome,
-        preco: produto.preco,
+        preco: parseFloat(produto.preco),
         categoria: produto.categoria,
         descricao: produto.descricao,
         quantidade: produto.quantidade,
@@ -103,10 +103,11 @@ export default function AdicionarProduto() {
           <input
             name="preco"
             type="number"
-            step="1"
+            step="0.01"
             value={produto.preco}
             onChange={handleChange}
             min={0.01}
+            placeholder="Ex: 19.99"
             required
           />
         </div>

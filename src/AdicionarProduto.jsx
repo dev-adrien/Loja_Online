@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AdicionarProduto() {
+  // fixando o state de cada campo
   const [produto, setProduto] = useState({
     nome: "",
     preco: "",
     categoria: "",
     descricao: "",
     quantidade: "",
-    foto: null,
+    imagem: "",
   });
   const [erro, setErro] = useState("");
   const [mensagem, setMensagem] = useState("");
@@ -16,10 +17,10 @@ export default function AdicionarProduto() {
 
   // fixando o state de cada campo
   function handleChange(e) {
-    const { name, value, type, files } = e.target;
+    const { name, value } = e.target;
     setProduto((prev) => ({
       ...prev,
-      [name]: type === "file" ? files[0] : value,
+      [name]: value,
     }));
   }
 
@@ -32,7 +33,7 @@ export default function AdicionarProduto() {
     if (!produto.descricao.trim()) return "Descrição é obrigatória.";
     if (produto.descricao.length > 500) return "Descrição muito longa.";
     if (!produto.quantidade || parseInt(produto.quantidade) < 0) return "Quantidade deve ser zero ou maior.";
-    if (!produto.foto) return "Foto do produto é obrigatória.";
+    if (!produto.imagem.trim()) return "URL da imagem é obrigatória.";
     return "";
   }
 
@@ -48,18 +49,17 @@ export default function AdicionarProduto() {
     }
 
     // adicionando dados do formulário
-    const formData = new FormData();
-    formData.append("nome", produto.nome);
-    formData.append("preco", produto.preco);
-    formData.append("categoria", produto.categoria);
-    formData.append("descricao", produto.descricao);
-    formData.append("quantidade", produto.quantidade);
-    formData.append("foto", produto.foto);
-
-    // envia ppara o server.json
     fetch("http://localhost:3000/produtos", {
       method: "POST",
-      body: formData,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome: produto.nome,
+        preco: produto.preco,
+        categoria: produto.categoria,
+        descricao: produto.descricao,
+        quantidade: produto.quantidade,
+        imagem: produto.imagem,
+      }),
     })
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao cadastrar produto.");
@@ -74,7 +74,7 @@ export default function AdicionarProduto() {
           categoria: "",
           descricao: "",
           quantidade: "",
-          foto: null,
+          imagem: "",
         });
         setTimeout(() => navigate("/"), 1500);
       })
@@ -84,7 +84,7 @@ export default function AdicionarProduto() {
   return (
     <div>
       <h2>Adicionar Produto</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit}>
         {/* Nome do produto */}
         <div>
           <label>Nome*: </label>
@@ -112,12 +112,26 @@ export default function AdicionarProduto() {
         {/* Categoria */}
         <div>
           <label>Categoria*: </label>
-          <input
+          <select
             name="categoria"
             value={produto.categoria}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Selecione</option>
+            <option value="Eletrônicos">Eletrônicos</option>
+            <option value="Roupas">Roupas</option>
+            <option value="Livros">Livros</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Brinquedos">Brinquedos</option>
+            <option value="Papelaria">Papelaria</option>
+            <option value="Diversos">Diversos</option>
+            <option value="Moveis">Moveis</option>
+            <option value="Ferramentas">Ferramentas</option>
+            <option value="Beleza">Beleza</option>
+            <option value="Esportes">Esportes</option>
+            <option value="Eletrodomestico">Eletrodomestico</option>
+          </select>
         </div>
         {/* Descrição */}
         <div>
@@ -142,14 +156,15 @@ export default function AdicionarProduto() {
             required
           />
         </div>
-        {/* Foto */}
+        {/* URL da imagem */}
         <div>
-          <label>Foto do produto*: </label>
+          <label>URL da imagem*: </label>
           <input
-            name="foto"
-            type="file"
-            accept="image/*"
+            name="imagem"
+            type="text"
+            value={produto.imagem}
             onChange={handleChange}
+            placeholder="Cole a URL da imagem ou caminho local"
             required
           />
         </div>

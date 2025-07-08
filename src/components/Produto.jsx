@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, CardActionArea, CardActions } from '@mui/material';
 import ProdutoPopUp from './ProdutoPopUp';
 
-export default function Produto({ id, nome, preco, categoria, imagem, descricao }) {
+export default function Produto({ id, nome, preco, categoria, imagem, estoque, descricao }) {
   const [open, setOpen] = React.useState(false);
-  const produto = { id, nome, preco, categoria, imagem, descricao };
+  const produto = { id, nome, preco, categoria, imagem, estoque, descricao };
 
   return (
     <>

@@ -4,6 +4,8 @@ import AdicionarProduto from "./AdicionarProduto";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Editar from "./Editar";
 import { useParams } from "react-router-dom";
+import { useState } from 'react'
+import Home from './pages/Home.jsx'
 
 function EditarWrapper() {
   const { id } = useParams();

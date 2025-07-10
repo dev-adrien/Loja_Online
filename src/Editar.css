@@ -1,0 +1,91 @@
+.editar-produto-container {
+  max-width: 540px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  padding: 40px 32px 32px 32px;
+}
+
+.editar-produto-container h2 {
+  margin-bottom: 32px;
+  color: #015FCA;
+  text-align: center;
+}
+
+.editar-produto-container form > div {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.editar-produto-container label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #222;
+  font-size: 1.05em;
+}
+
+.editar-produto-container input,
+.editar-produto-container textarea,
+.editar-produto-container select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1.08em;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+.editar-produto-container textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.editar-produto-container .botoes-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.editar-produto-container .btn-salvar {
+  flex: 1;
+  padding: 12px;
+  background: #015FCA;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.editar-produto-container .btn-salvar:hover {
+  background: #013a7a;
+}
+
+.editar-produto-container .btn-excluir {
+  flex: 1;
+  padding: 12px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.editar-produto-container .btn-excluir:hover {
+  background: #c82333;
+}
+
+.editar-produto-container .loading {
+  text-align: center;
+  color: #666;
+  font-size: 1.2em;
+  margin: 50px 0;
+}

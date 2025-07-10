@@ -29,17 +29,21 @@ export default function Produto({ id, nome, preco, categoria, imagem, estoque, d
                   method: "DELETE",
                 })
                   .then((res) => {
-                    if (res.ok) {''
+                    if (res.ok) {
                       alert("Produto excluído com sucesso!");
                       navigate("/");
-                      if (onEditSuccess) onEditSuccess();
+                      window.location.reload();
                     } else {
                       alert("Erro ao excluir o produto.");
                     }
+                  })
+                  .catch((error) => {
+                    console.error("Erro ao excluir produto:", error);
+                    alert("Erro ao excluir o produto.");
                   });
               }
             }}
-          >DELETAR</Button>
+          >EXCLUIR</Button>
         </CardActions>
       </Card>
       <ProdutoPopUp open={open} onClose={() => setOpen(false)} produto={produto} />

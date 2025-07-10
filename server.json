@@ -46,22 +46,9 @@
       "estoque": 5
     },
     {
-      "id": 6,
-      "nome": "Cadeira Gamer",
-      "categoria": "Mobiliário",
-      "preco": "R$ 1.199,00",
-      "imagem": "https://th.bing.com/th/id/OIP.dtd0CTa9jBkiu5b5pQZhSgHaFs?w=254&h=195&c=7&r=0&o=7&pid=1.7&rm=3",
-      "descricao": "Cadeira confortável e ergonômica para longas horas no PC.",
-      "estoque": 12
-    },
-    {
-      "id": "d27c",
-      "nome": "Cadeira",
-      "preco": "R$ 4.599,00",
-      "categoria": "Moveis",
-      "descricao": "teste",
-      "imagem": "https://abracasa.vteximg.com.br/arquivos/ids/180281/cadeira-lala-madeira-tramado-cinza-mescla-diagonal.jpg?v=637865778148530000",
-      "estoque": 6
+      "nome": "Teclado",
+      "preco": 29.98,
+      "id": "4"
     }
   ]
 }

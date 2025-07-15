@@ -16,20 +16,6 @@ const theme = createTheme({
                 },
             },
         },
-        MuiCardActions: {
-            styleOverrides: {
-                root:{
-                    justifyContent: "right",
-                },
-            },
-        },
-        MuiLink: {
-            styleOverrides: {
-                root: {
-                    color: '#000'
-                },
-            },
-        },
     },
 });
 

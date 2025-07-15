@@ -41,20 +41,30 @@ export default function Header() {
         <Container maxWidth="xl">
             <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
+                        <Typography
                 variant="h6"
                 noWrap
+                component={Link}
+                to="/"
                 sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'primary.main',
-                textDecoration: 'none',
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'primary.main',
+                  '&:hover': {
+                        color: 'primary.main',
+                        },
+                  textDecoration: 'none',
+                  fontSize: '1.25rem',
+                  background: 'none',
+                  boxShadow: 'none',
+                  textTransform: 'none',
+                  minWidth: 0
                 }}
             >
-                <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }} >Lojinha</Link>
+                Lojinha
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -85,37 +95,64 @@ export default function Header() {
                 sx={{ display: { xs: 'block', md: 'none' } }}
                 >
                 {pages.map((page) => (
-                    <MenuItem key={page.id} onClick={handleCloseNavMenu}>
-                    <Typography sx={{ textAlign: 'center' }}><Link to={page.url} style={{ color: 'inherit', textDecoration: 'none' }} >{page.pagina}</Link></Typography>
+                    <MenuItem
+                        key={page.id}
+                        component={Link}
+                        to={page.url}
+                        onClick={handleCloseNavMenu}
+                        sx={{ textAlign: 'center',
+                            color: 'primary.main',
+                            '&:hover': {
+                            color: 'primary.main',
+                            },
+                            textDecoration: 'none' }}
+                    >
+                        {page.pagina}
                     </MenuItem>
                 ))}
                 </Menu>
             </Box>
             <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-            <Typography
-                variant="h5"
-                noWrap
+            <Button
+                component={Link}
+                to="/"
                 sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'primary.main',
-                textDecoration: 'none',
+                  mr: 2,
+                  display: { xs: 'flex', md: 'none' },
+                  flexGrow: 1,
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'primary.main',
+                  '&:hover': {
+                        color: 'primary.main',
+                        },
+                  textDecoration: 'none',
+                  fontSize: '1.25rem',
+                  background: 'none',
+                  boxShadow: 'none',
+                  textTransform: 'none',
+                  minWidth: 0
                 }}
             >
-                <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }} >Lojinha</Link>
-            </Typography>
+                Lojinha
+            </Button>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 'auto' }}>
                 {pages.map((page) => (
                 <Button
                     key={page.id}
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'primary.main', display: 'block' }}
+                    component={Link}
+                    to={page.url}
+                    sx={{ my: 2,
+                        color: 'primary.main',
+                        '&:hover': {
+                        color: 'primary.main',
+                        },
+                        display: 'block',
+                        textTransform: 'none' }}
                 >
-                    <Link to={page.url} style={{ color: 'inherit', textDecoration: 'none' }} >{page.pagina}</Link>
+                    {page.pagina}
                 </Button>
                 ))}
             </Box>

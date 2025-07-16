@@ -15,7 +15,7 @@ export default function Editar({ id, onEditSuccess }) {
   const navigate = useNavigate(); 
 
   useEffect(() => {
-    fetch(`http://localhost:3000/produtos/${id}`)
+    fetch(`https://6876f363dba809d901ed7edc.mockapi.io/produtos/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduto({
@@ -55,7 +55,7 @@ export default function Editar({ id, onEditSuccess }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`http://localhost:3000/produtos/${id}`, {
+    fetch(`https://6876f363dba809d901ed7edc.mockapi.io/produtos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -151,7 +151,7 @@ export default function Editar({ id, onEditSuccess }) {
             className="btn-excluir"
             onClick={() => {
               if (window.confirm("Tem certeza que deseja excluir este produto?")) {
-                fetch(`http://localhost:3000/produtos/${id}`, {
+                fetch(`https://6876f363dba809d901ed7edc.mockapi.io/produtos/${id}`, {
                   method: "DELETE",
                 })
                   .then((res) => {

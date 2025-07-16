@@ -59,7 +59,7 @@ export default function AdicionarProduto() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/produtos", {
+      const res = await fetch("https://6876f363dba809d901ed7edc.mockapi.io/produtos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

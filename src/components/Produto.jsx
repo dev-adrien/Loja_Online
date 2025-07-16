@@ -25,7 +25,7 @@ export default function Produto({ id, nome, preco, categoria, imagem, estoque, d
           <Button size="small" color="secondary" 
             onClick={() => {
               if (window.confirm("Tem certeza que deseja excluir este produto?")) {
-                fetch(`http://localhost:3000/produtos/${id}`, {
+                fetch(`https://6876f363dba809d901ed7edc.mockapi.io/produtos/${id}`, {
                   method: "DELETE",
                 })
                   .then((res) => {

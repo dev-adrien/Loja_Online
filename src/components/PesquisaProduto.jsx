@@ -9,7 +9,6 @@ export default function PesquisaProduto({ onPesquisar }) {
   const [ordem, setOrdem] = useState('asc');
 
   useEffect(() => { onPesquisar({ busca, criterioOrdenacao, ordem }); }, [busca, criterioOrdenacao, ordem]);
-    //Achei as setas feias mas não achei um icone melhor para usar, se tiver sugestões pode trocar ,_, sou ruim em fazer coisa bonita
   return (
 <Box sx={{ display: 'flex', gap: 2, mb: 2, alignItems: 'center' }}>
   <TextField label="Buscar produto" variant="outlined" value={busca} onChange={(e) => setBusca(e.target.value)} sx={{ flexGrow: 1 }}/>

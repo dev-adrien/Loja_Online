@@ -4,7 +4,7 @@ import { Modal, Box, Typography, CardMedia } from '@mui/material';
 export default function ProdutoPopUp({ open, onClose, produto }) {
   if (!produto) return null;
   const { nome, preco, categoria, imagem, descricao, estoque } = produto;
-
+  let disponivel = estoque > 0 ? "Disponível" : "Indisponível";
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={{
@@ -16,6 +16,7 @@ export default function ProdutoPopUp({ open, onClose, produto }) {
         <Typography variant="body2" color="primary" sx={{ mb: 1 }}><strong>Categoria:</strong> {categoria}</Typography>
         <Typography variant="body2" color="primary" sx={{ mb: 1 }}><strong>Preço:</strong> {preco}</Typography>
         <Typography variant="body2" color="primary" sx={{ mb: 1 }}><strong>Estoque:</strong> {estoque}</Typography>
+        <Typography variant="body2"color={disponivel === "Indisponível" ? "error" : "primary"} sx={{ mb: 1 }}><strong>Disponilidade:</strong> {disponivel}</Typography>
         <Typography variant="body2"color="primary"><strong>Descrição:</strong> {descricao}</Typography>
       </Box>
     </Modal>

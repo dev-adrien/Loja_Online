@@ -4,19 +4,18 @@ import { ThemeProvider } from '@mui/material/styles'
 import theme from '../utils/theme.js'
 import PesquisaProduto from '../components/PesquisaProduto'
 import ContainerProdutos from '../components/ContainerProdutos'
-import '../utils/home.css'
 
 export default function Home() { 
     const [produtos, setProdutos] = useState([]);
     const [produtosFiltrados, setProdutosFiltrados] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/produtos")
-            .then(res => res.json())
-            .then(data => {
-                setProdutos(data);
-                setProdutosFiltrados(data);
-            });
+        fetch('https://6876f363dba809d901ed7edc.mockapi.io/produtos')
+            .then((res) => res.json())
+            .then((data) => {
+                setProdutos(data)
+                setProdutosFiltrados(data)
+            })
     }, []);
 
     function parsePreco(preco) {

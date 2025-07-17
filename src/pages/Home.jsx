@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles'
 import theme from '../utils/theme.js'
 import PesquisaProduto from '../components/PesquisaProduto'
 import ContainerProdutos from '../components/ContainerProdutos'
+import { API_ENDPOINTS } from '../config/api.js'
 
 export default function Home() { 
     const [produtos, setProdutos] = useState([]);
     const [produtosFiltrados, setProdutosFiltrados] = useState([]);
 
     useEffect(() => {
-        fetch('https://6876f363dba809d901ed7edc.mockapi.io/produtos')
+        fetch(API_ENDPOINTS.produtos)
             .then((res) => res.json())
             .then((data) => {
                 setProdutos(data)

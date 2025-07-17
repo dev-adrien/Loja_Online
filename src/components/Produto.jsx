@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, CardActionArea, CardActions } from '@mui/material';
 import ProdutoPopUp from './ProdutoPopUp';
 import { useNavigate } from 'react-router-dom';
+import { getProdutoUrl } from '../config/api.js';
 
 export default function Produto({ id, nome, preco, categoria, imagem, estoque, descricao }) {
   const [open, setOpen] = React.useState(false);
@@ -25,7 +26,7 @@ export default function Produto({ id, nome, preco, categoria, imagem, estoque, d
           <Button size="small" color="secondary" 
             onClick={() => {
               if (window.confirm("Tem certeza que deseja excluir este produto?")) {
-                fetch(`https://6876f363dba809d901ed7edc.mockapi.io/produtos/${id}`, {
+                fetch(getProdutoUrl(id), {
                   method: "DELETE",
                 })
                   .then((res) => {
